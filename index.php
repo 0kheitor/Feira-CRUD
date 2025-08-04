@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/styles1.css">
+    <link rel="stylesheet" href="./styles1.css">
     <script src="https://kit.fontawesome.com/4ec170f2bb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
         <a href="adicionarProduto.html" id = "tag-adicionar"><div id = "adicionar"><span>Adicionar</span><i class="fa-solid fa-file-lines"></i></div></a>
         <?php
         crudTable($queryConn, "alterarProduto.php","excluirProduto.php", tableName: "Produtos");
-        styleSheet(dark: false);
+        styleSheet(dark: true);
         ?>
     </main>
     <script>

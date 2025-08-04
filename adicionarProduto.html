@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/stylesCRUD.css">
+    <link rel="stylesheet" href="./stylesCRUD.css">
 </head>
 <body>
     <header>
@@ -26,11 +26,11 @@
     <footer>
         <p>Feito por Heitor</p>
     </footer>
-    <script src = "./scripts/geral.js"></script>
+    <script src = "./script.js"></script>
     <script>
         window.document.addEventListener('DOMContentLoaded', () =>{
             let theme = window.localStorage.getItem('theme') === '1';
-            console.log(theme);
+            console.log("tema atual:" + (!theme?"light":"dark"));
             const root = window.document.querySelector('html');
             if(theme){
                 root.classList.add('toggled');

@@ -11,24 +11,21 @@
         $queryConn -> execute();
         $line = $queryConn->fetch();
         $imageLocation = $line['foto'];
-        unlink(__DIR__ . $imageLocation);
-        header('location: index.php');
     }
+
     catch(PDOException $e){// Exibe a mensagem de erro e não sai da pagina (recurso de depuração)
         echo "NÃO FOI POSSIVEL REALIZAR A OPERAÇÃO!<br>";
         echo "ERRO: ".$e->getMessage();
+        exit();
     }
-
-
 
     $varSQL = "DELETE FROM produto WHERE id=:id";
     $delete = $conn->prepare($varSQL);
     $delete ->bindParam(':id',$id);
 
-
-
     try{
         $delete ->execute();
+        unlink(__DIR__ . $imageLocation);
         header('location: index.php');
     }
     catch(PDOException $e){// Exibe a mensagem de erro e não sai da pagina (recurso de depuração)

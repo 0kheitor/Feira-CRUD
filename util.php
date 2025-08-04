@@ -45,12 +45,12 @@
                     continue;
                 }
                 //CÓDIGO ESPECÍFICO
-                if($schemaArray[$cont]['name'] == 'foto'){//aqui ele vai printar um td especifico quando perceber que essa coluna é de imagens/fotos
+                if($schemaArray[$cont]['name'] == 'foto'){//aqui ele vai printar um <td> especifico quando perceber que essa coluna é de imagens/fotos
                     echo "<td class = 'td-image'><img src = $cell alt = 'imagem nao encontrada' style = 'height:110px'></td>";
                     $cont++;
                     continue;
                 }
-                if($schemaArray[$cont]['name'] == 'data_colheita'){//aqui ele vai printar um td especifico quando perceber que essa coluna é de data
+                if($schemaArray[$cont]['name'] == 'data_colheita'){//aqui ele vai printar um <td> especifico quando perceber que essa coluna é de data
                     echo "<td>" . htmlspecialchars(date('d/m/Y', strtotime($line['data_colheita']))) . "</td>";//transforma a data em uma forma mais visivel
                     $cont++;
                     continue;
@@ -65,7 +65,6 @@
             echo "</tr>";
         }
         echo "</tbody>";
-        //echo "<tfoot><tr><td><a href='$addPhp'>Adicionar</a></td></tr> </tfoot>"; //aqui é adicionado o botão de adicionar
         echo "</table>";
     }
 
@@ -161,7 +160,7 @@
         }
 
         @media (max-width: 768px) {
-        $tableId, $tableId *:not(a, thead){
+        $tableId, $tableId *:not(a):not(thead):not(.td-image img){
             display: block;
         }
 

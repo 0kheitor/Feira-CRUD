@@ -13,8 +13,8 @@
 
     $oldImageLocation = $_POST['oldImage'];
 
-    $aleatory = bin2hex(random_bytes(16));
-    $imageLocation = "/images/" . $aleatory . $newImage["name"];
+    $aleatory = bin2hex(random_bytes(16)); //Evita confilto de nome de imagem
+    $imageLocation = "/images/" . $aleatory . $newImage["name"]; 
 
     $changeImage = false;
     if(file_exists($newImage["tmp_name"])){
@@ -35,7 +35,7 @@
     $update->bindParam(':foto',  $imageOpyion);
     $update->bindParam(':data_colheita', $data);
 
-    try{
+    try{//tenta mover a imagem carregada
         $update->execute();
         if( $changeImage){
             unlink(__DIR__.$oldImageLocation);
@@ -43,7 +43,8 @@
         }
         header('location: index.php');
     }
-    catch(PDOException){
-        echo "UM ERRO ACONTECEU! OPERAÇÃO MAL REALIZADA!";
+    catch(PDOException $e){
+        echo "NÃO FOI POSSIVEL REALIZAR A OPERAÇÃO!<br>";
+        echo "ERRO: " . $e->getMessage();
     }
 ?>

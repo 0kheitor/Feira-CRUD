@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/stylesCRUD.css">
+</head>
+<body>
+    <header>
+        <nav><a href="index.php" class = "nav-a"><span>Voltar</span></a></nav>
+    </header>
+    <main>
+        <form action="insertProduto.php" method="post" enctype="multipart/form-data" id = "formAdicionar">
+            <fieldset>
+                <legend>Insira os valores</legend>
+                <div class = "form-unit"> <label for="nome">Nome do produto:</label><input type="text" name="nome" id = "nome" required></div>
+                <div  class = "form-unit"><label for="preco">Preço:</label><input type="number" name="preco" id = "preco" step="any" required></div>
+                <div  class = "form-unit"><label for="data">Data de colheita:</label><input type="date" name="data" id = "data" required></div>
+                <div  class = "form-unit"><label for="image">Imagem:</label><input type="file" name="image" id = "image" accept="image/*" required/></div>
+                <div class = "form-view"><span>Preview:</span><img src="#" alt="..." id = "preview" style = "width:100px"></div>
+            </fieldset>
+            <button type = "submit" id = "enviar"><span>Enviar</span></button>
+        </form>
+    </main>
+    <footer>
+        <p>Feito por Heitor</p>
+    </footer>
+    <script src = "./scripts/geral.js"></script>
+    <script>
+        window.document.addEventListener('DOMContentLoaded', () =>{
+            let theme = window.localStorage.getItem('theme') === '1';
+            console.log(theme);
+            const root = window.document.querySelector('html');
+            if(theme){
+                root.classList.add('toggled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -46,7 +46,7 @@
                 }
                 //CÓDIGO ESPECÍFICO
                 if($schemaArray[$cont]['name'] == 'foto'){//aqui ele vai printar um <td> especifico quando perceber que essa coluna é de imagens/fotos
-                    echo "<td class = 'td-image'><img src = $cell alt = 'imagem nao encontrada' style = 'height:110px'></td>";
+                    echo "<td class = 'td-image'><img src = '.$cell' alt = 'imagem nao encontrada' style = 'height:110px'></td>";
                     $cont++;
                     continue;
                 }

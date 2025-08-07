@@ -36,7 +36,7 @@
             <input type="hidden" name = "oldImage" id = "oldImage" value = <?php echo $imageLocation; ?>>
             <legend>Alterar campos</legend>
             <div class = "form-unit"><label for="nome">Nome:</label><input type="text" name="nome" id = "nome"  value = "<?php echo $nome; ?>" required></div>
-            <div class = "form-unit"><label for="preco">Preço:</label><input type="number" name="preco" id = "preco" step = "any" value = "<?php echo $preco; ?>" required></div>
+            <div class = "form-unit"><label for="preco">Preço:</label><input type="number" name="preco" id = "preco" step = "any" min="0" value = "<?php echo $preco; ?>" required></div>
             <div class = "form-unit"><label for="data">Data de colheita:</label><input type="date" name="data" id = "data" value = "<?php echo $data; ?>" required></div>
             <div class = "form-unit"><label for="image">Imagem: </label><input type="file" name="image" id = "image" accept="image/*"/></div>
             <div class = "form-view"><span>Imagem atual:</span><img src="<?php echo $imageLocation; ?>" alt="Imagem atual" style = "width:70px"></div>

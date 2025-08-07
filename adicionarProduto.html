@@ -15,7 +15,7 @@
             <fieldset>
                 <legend>Insira os valores</legend>
                 <div class = "form-unit"> <label for="nome">Nome do produto:</label><input type="text" name="nome" id = "nome" required></div>
-                <div  class = "form-unit"><label for="preco">Preço:</label><input type="number" name="preco" id = "preco" step="any" required></div>
+                <div  class = "form-unit"><label for="preco">Preço:</label><input type="number" name="preco" id = "preco" min="0" step="any" required></div>
                 <div  class = "form-unit"><label for="data">Data de colheita:</label><input type="date" name="data" id = "data" required></div>
                 <div  class = "form-unit"><label for="image">Imagem:</label><input type="file" name="image" id = "image" accept="image/*" required/></div>
                 <div class = "form-view"><span>Preview:</span><img src="#" alt="..." id = "preview" style = "width:100px"></div>
@@ -32,9 +32,24 @@
             let theme = window.localStorage.getItem('theme') === '1';
             console.log("tema atual:" + (!theme?"light":"dark"));
             const root = window.document.querySelector('html');
+            const form = document.getElementById('formAdicionar');
+            const btn = document.getElementById('enviar');
+            let enviado = false;
+
             if(theme){
                 root.classList.add('toggled');
             }
+
+            form.addEventListener('submit', function (e) {
+            if (enviado) {
+                e.preventDefault(); // Impede segundo envio
+                return;
+            }
+
+            enviado = true; // Marca como já enviado
+            btn.disabled = true; // Desabilita o botão
+            btn.innerHTML = '<span>Enviando...</span>'; // Feedback visual opcional
+            });
         });
     </script>
 </body>

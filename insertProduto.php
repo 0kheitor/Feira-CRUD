@@ -13,8 +13,8 @@
         exit('No file uploaded.');
     }
 
-    if (filesize($image_file["tmp_name"]) <= 0) {
-        exit('Uploaded file has no contents.');
+    if (filesize($image_file["tmp_name"]) <= 0 || filesize($image_file["tmp_name"]) >= 3000000) {
+        exit('Uploaded file has no contents. Or is bigger than limit');
     }
 
     $varQuery = "INSERT INTO produto(nome, preco, data_colheita, foto) VALUES(:nome,:preco,:data,:foto)";

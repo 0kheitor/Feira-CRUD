@@ -30,7 +30,7 @@
     <nav><a href="index.php" class = "nav-a"><span>Voltar</span></a></nav>
 </header>
 <main>
-    <form action="updateProduto.php" method="post" enctype="multipart/form-data"  id = "formAdicionar">
+    <form action="updateProduto.php" method="post" enctype="multipart/form-data"  id = "form">
         <fieldset>
             <input type="hidden" name = "id" id = "id" value = <?php echo $id; ?>>
             <input type="hidden" name = "oldImage" id = "oldImage" value = <?php echo $imageLocation; ?>>
@@ -54,9 +54,24 @@
         let theme = window.localStorage.getItem('theme') === '1';
         console.log("tema atual:" + (!theme?"light":"dark"));
         const root = window.document.querySelector('html');
+        const form = document.getElementById('form');
+        const btn = document.getElementById('enviar');
+        let enviado = false;
+
         if(theme){
             root.classList.add('toggled');
         }
+
+        form.addEventListener('submit', function (e) {
+        if (enviado) {
+            e.preventDefault(); // Impede segundo envio
+            return;
+        }
+
+        enviado = true; // Marca como já enviado
+        btn.disabled = true; // Desabilita o botão
+        btn.innerHTML = '<span>Enviando...</span>'; // Feedback visual opcional
+        });
     });
 </script>
 </body> 

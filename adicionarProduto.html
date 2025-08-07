@@ -11,7 +11,7 @@
         <nav><a href="index.php" class = "nav-a"><span>Voltar</span></a></nav>
     </header>
     <main>
-        <form action="insertProduto.php" method="post" enctype="multipart/form-data" id = "formAdicionar">
+        <form action="insertProduto.php" method="post" enctype="multipart/form-data" id = "form">
             <fieldset>
                 <legend>Insira os valores</legend>
                 <div class = "form-unit"> <label for="nome">Nome do produto:</label><input type="text" name="nome" id = "nome" required></div>
@@ -32,7 +32,7 @@
             let theme = window.localStorage.getItem('theme') === '1';
             console.log("tema atual:" + (!theme?"light":"dark"));
             const root = window.document.querySelector('html');
-            const form = document.getElementById('formAdicionar');
+            const form = document.getElementById('form');
             const btn = document.getElementById('enviar');
             let enviado = false;
 

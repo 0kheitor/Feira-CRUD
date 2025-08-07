@@ -95,7 +95,7 @@ main{
     align-items: center;
 }
 
-#formAdicionar{
+#form{
     user-select: none;
     height: 80%;
     width: 25%;
@@ -107,7 +107,7 @@ main{
     align-items: center;
 }
 
-#formAdicionar > fieldset::after{
+#form > fieldset::after{
     content: '';
     position: absolute;
     z-index: -1;
@@ -124,7 +124,7 @@ main{
     opacity: 0.5;
 }
 
-#formAdicionar > fieldset{
+#form > fieldset{
     position: relative;
     height: 100%;
     width: 100%;
@@ -137,7 +137,7 @@ main{
     text-align: center;
 }
 
-#formAdicionar > fieldset > legend{
+#form > fieldset > legend{
     font-size: 2rem;
 }
 
@@ -216,7 +216,7 @@ main{
 }
 
 @media screen and (max-width: 1200px) {
-    #formAdicionar{
+    #form{
         width: 80%;
     }
 }
